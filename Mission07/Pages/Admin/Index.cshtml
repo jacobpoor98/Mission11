@@ -1,5 +1,9 @@
 ﻿@page "/admin"
 
+@* add ability to login *@
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
 @model Mission07.Pages.Admin.IndexModel
 
 @{

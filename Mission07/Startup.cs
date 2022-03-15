@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,11 +29,19 @@ namespace Mission07
         {
             services.AddControllersWithViews();
 
-            // establish the connection screen
+            // establish a connection string for the Bookstore database
             services.AddDbContext<BookstoreContext>(options =>
             {
                 options.UseSqlite(Configuration["ConnectionStrings:BookDBConnection"]);
             });
+
+            // establish a connection string for the Identity database
+            services.AddDbContext<AppIdentityDBContext>(options =>
+            {
+                options.UseSqlite(Configuration["ConnectionStrings:IdentityConnection"]);
+            });
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<AppIdentityDBContext>();
 
             services.AddScoped<IBookProjectRepository, EFBookProjectRepository>();
             services.AddScoped<IPurchaseRepository, EFPurchaseRepository>();
@@ -71,6 +80,11 @@ namespace Mission07
 
             app.UseRouting();
 
+            // allow for authorization and authentication via login
+            app.UseAuthentication();
+
+            app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
             {
                 // endpoint with both page num and category
@@ -104,6 +118,9 @@ namespace Mission07
                 endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
             });
+
+            // allows us to seed the data
+            IdentitySeedData.EnsurePopulated(app);
         }
     }
 }

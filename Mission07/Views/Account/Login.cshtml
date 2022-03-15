@@ -1,0 +1,53 @@
+﻿@{
+    // keeps this page from inheriting from the _Layout page
+    Layout = null;
+}
+
+@* bring in login model *@
+@model LoginModel
+
+<html>
+
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Book Store Login</title>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/lib/fontawesome/css/all.min.css" />
+    </head>
+
+    <body>
+
+        <div class="bg-dark text-white p-2">
+            <span class="navbar-brand m-1-2">THE BOOK COLLECTION</span>
+        </div>
+
+        <div class="m-1 p-1">
+
+            <div class="text-danger" asp-validation-summary="All"></div>
+
+            @* login form *@
+            <form method="post" asp-controller="Account" asp-action="Login">
+
+                <div class="form-group">
+                    <label asp-for="Username">Username: </label>
+                    <input asp-for="Username" class="form-control"/>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Password">Password: </label>
+                    <input asp-for="Password" type="password" class="form-control" />
+                </div>
+
+                <button class="btn btn-primary" type="submit">Login</button>
+
+                @* pass the Url to return to if the login is successful but make it hidden *@
+                <input type="hidden" asp-for="ReturnUrl" />
+
+            </form>
+
+        </div>
+
+    </body>
+
+</html>
