@@ -1,16 +1,20 @@
 ﻿<Properties StartupConfiguration="{6A21751D-2A49-4777-9929-72C2454BAF2B}|Default">
   <MonoDevelop.Ide.ItemProperties.Mission07 PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Mission07/Pages/Admin/AdminLayout.razor">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Mission07/Views/Purchase/Checkout.cshtml">
     <Files>
+      <File FileName="Mission07/Pages/Purchase.cshtml" Line="57" Column="29" IsPinned="True" />
       <File FileName="Mission07/Models/AppIdentityDBContext.cs" Line="10" Column="63" />
       <File FileName="Mission07/appsettings.json" Line="11" Column="58" />
       <File FileName="Mission07/Startup.cs" Line="115" Column="41" />
       <File FileName="Mission07/Models/IdentitySeedData.cs" Line="21" Column="44" />
       <File FileName="Mission07/Models/LoginModel.cs" Line="15" Column="46" />
       <File FileName="Mission07/Views/Account/Login.cshtml" Line="20" Column="1" />
-      <File FileName="Mission07/Controllers/AccountController.cs" Line="60" Column="66" />
+      <File FileName="Mission07/Controllers/AccountController.cs" Line="54" Column="90" />
       <File FileName="Mission07/Pages/Admin/Index.cshtml" Line="3" Column="25" />
-      <File FileName="Mission07/Pages/Admin/AdminLayout.razor" Line="1" Column="1" />
+      <File FileName="Mission07/Pages/Admin/AdminLayout.razor" Line="18" Column="19" />
+      <File FileName="Mission07/Pages/_PurchaseLayout.cshtml" Line="20" Column="11" />
+      <File FileName="Mission07/Pages/PurchaseCompleted.cshtml" Line="16" Column="75" />
+      <File FileName="Mission07/Views/Purchase/Checkout.cshtml" Line="59" Column="74" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -20,12 +24,13 @@
               <Node name="Controllers" expanded="True" />
               <Node name="Models" expanded="True" />
               <Node name="Pages" expanded="True">
-                <Node name="Admin" expanded="True">
-                  <Node name="AdminLayout.razor" selected="True" />
-                </Node>
+                <Node name="Admin" expanded="True" />
               </Node>
               <Node name="Views" expanded="True">
                 <Node name="Account" expanded="True" />
+                <Node name="Purchase" expanded="True">
+                  <Node name="Checkout.cshtml" selected="True" />
+                </Node>
                 <Node name="Shared" expanded="True" />
               </Node>
             </Node>
